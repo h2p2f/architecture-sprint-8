@@ -1,6 +1,9 @@
 {
     "realm": "reports-realm",
     "enabled": true,
+    "accessTokenLifespan": 300,
+    "ssoSessionIdleTimeout": 1800,
+    "ssoSessionMaxLifespan": 36000,
     "roles": {
       "realm": [
         {
@@ -116,8 +119,15 @@
         "publicClient": true,
         "redirectUris": ["http://localhost:3000/*"],
         "webOrigins": ["http://localhost:3000"],
-        "directAccessGrantsEnabled": true
-      },
+        "directAccessGrantsEnabled": true,
+        "standardFlowEnabled": true,
+        "attributes": {
+          "pkce.code.challenge.method": "S256",
+          "access.token.lifespan": "300",
+          "oauth2.device.authorization.grant.enabled": "true",
+          "pkce.code.challenge.required": "true"
+          }
+        },
       {
         "clientId": "reports-api",
         "enabled": true,
